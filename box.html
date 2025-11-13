@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prenota il tuo Evento</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* --- Reset & Base --- */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #E3DBDB; /* sfondo principale */
+    color: #4E3D42; /* testo principale */
+    line-height: 1.6;
+  }
+  a { text-decoration: none; color: inherit; }
+
+  /* --- Header --- */
+  header {
+    background-color: #fff;
+    padding: 30px 20px;
+    text-align: center;
+    border-bottom: 3px solid #17DED4;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  }
+  header h1 {
+    color: #4E3D42;
+    font-weight: 600;
+    font-size: 2em;
+  }
+  header p {
+    color: #6D6466;
+    margin-top: 5px;
+    font-size: 1em;
+  }
+
+  /* --- Sezione Intro --- */
+  .intro {
+    max-width: 900px;
+    margin: 40px auto;
+    text-align: center;
+    padding: 0 20px;
+  }
+  .intro h2 {
+    color: #4E3D42;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+  }
+  .intro p {
+    color: #6D6466;
+    font-size: 1.1em;
+  }
+
+  /* --- Mega Box Container --- */
+  .mega-box-container {
+    background-color: #fff;
+    border-radius: 20px;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .mega-box-container h2 {
+    grid-column: span 2;
+    text-align: center;
+    color: #17DED4;
+    margin-bottom: 20px;
+  }
+
+  /* --- Mini-card input --- */
+  .input-card {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 20px;
+    border-radius: 15px;
+    background-color: #E3DBDB;
+    border: 2px solid #6D6466;
+    transition: all 0.3s ease;
+  }
+  .input-card:hover { border-color: #17DED4; transform: translateY(-2px); }
+  .input-card label { margin-bottom: 8px; font-weight: 500; color: #4E3D42; }
+  .input-card input, .input-card select, .input-card textarea {
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 1px solid #6D6466;
+    font-size: 1em;
+    transition: all 0.3s ease;
+  }
+  .input-card input:focus, .input-card select:focus, .input-card textarea:focus {
+    outline: none;
+    border-color: #17DED4;
+    box-shadow: 0 0 10px rgba(23,222,212,0.3);
+  }
+  .full-width { grid-column: span 2; }
+  .textarea-large { min-height: 120px; resize: vertical; }
+
+  /* --- Pulsante --- */
+  button {
+    grid-column: span 2;
+    background-color: #17DED4;
+    color: #4E3D42;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    padding: 15px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  button:hover {
+    background-color: #4E3D42;
+    color: #E3DBDB;
+    transform: translateY(-2px);
+  }
+
+  /* --- Footer --- */
+  footer {
+    background-color: #fff;
+    text-align: center;
+    padding: 20px;
+    border-top: 3px solid #17DED4;
+    margin-top: 60px;
+    color: #6D6466;
+  }
+
+  /* --- Responsive --- */
+  @media(max-width: 600px) {
+    .mega-box-container { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <h1>Eventi Unici</h1>
+  <p>Organizziamo matrimoni, compleanni e feste indimenticabili</p>
+</header>
+
+<!-- Introduzione -->
+<section class="intro">
+  <h2>Benvenuti nel nostro mondo di eventi</h2>
+  <p>Il nostro team si occupa di trasformare ogni festa in un’esperienza unica e memorabile. Scegli il tipo di evento e raccontaci i tuoi desideri!</p>
+</section>
+
+<!-- Mega Box Prenotazioni -->
+<form class="mega-box-container">
+  <h2>Prenota il tuo Evento</h2>
+
+  <!-- Nome e Cognome -->
+  <div class="input-card">
+    <label>Nome e Cognome</label>
+    <input type="text" placeholder="Mario Rossi" required>
+  </div>
+
+  <!-- Email -->
+  <div class="input-card">
+    <label>Email</label>
+    <input type="email" placeholder="mario@example.com" required>
+  </div>
+
+  <!-- Telefono -->
+  <div class="input-card">
+    <label>Telefono</label>
+    <input type="tel" placeholder="+39 333 1234567" required>
+  </div>
+
+  <!-- Tipo di Festa -->
+  <div class="input-card full-width">
+    <label>Tipo di Festa</label>
+    <select id="tipoFesta" required>
+      <option value="">Seleziona</option>
+      <option value="matrimonio">Matrimonio</option>
+      <option value="compleanno">Compleanno</option>
+      <option value="addioNubilato">Addio al Nubilato</option>
+      <option value="addioCelibato">Addio al Celibato</option>
+      <option value="altro">Altro</option>
+    </select>
+  </div>
+
+  <!-- Box Altro Evento -->
+  <div class="input-card full-width" id="altroBox" style="display:none;">
+    <label>Descrivi il tipo di festa</label>
+    <textarea class="textarea-large" placeholder="Scrivi come vuoi la tua festa..."></textarea>
+  </div>
+
+  <!-- Box Richieste Aggiuntive -->
+  <div class="input-card full-width">
+    <label>Richieste Aggiuntive</label>
+    <textarea class="textarea-large" placeholder="Dettagli extra, desideri particolari..."></textarea>
+  </div>
+
+  <!-- Pulsante Invio -->
+  <button type="submit">Invia Richiesta</button>
+</form>
+
+<!-- Footer -->
+<footer>
+  &copy; 2025 Eventi Unici - Tutti i diritti riservati
+</footer>
+
+<script>
+  const tipoSelect = document.getElementById('tipoFesta');
+  const altroBox = document.getElementById('altroBox');
+  tipoSelect.addEventListener('change', function() {
+    if(this.value === 'altro') {
+      altroBox.style.display = 'block';
+    } else {
+      altroBox.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>
