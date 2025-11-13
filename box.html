@@ -3,101 +3,88 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prenota il tuo Evento</title>
+<title>Prenotazione Evento</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   /* --- Reset & Base --- */
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: 'Poppins', sans-serif;
-    background-color: #E3DBDB; /* sfondo principale */
-    color: #4E3D42; /* testo principale */
-    line-height: 1.6;
-  }
-  a { text-decoration: none; color: inherit; }
-
-  /* --- Header --- */
-  header {
-    background-color: #fff;
-    padding: 30px 20px;
-    text-align: center;
-    border-bottom: 3px solid #17DED4;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  }
-  header h1 {
+    background: linear-gradient(135deg, #E3DBDB, #6D6466);
     color: #4E3D42;
-    font-weight: 600;
-    font-size: 2em;
-  }
-  header p {
-    color: #6D6466;
-    margin-top: 5px;
-    font-size: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 50px 20px;
   }
 
-  /* --- Sezione Intro --- */
-  .intro {
-    max-width: 900px;
-    margin: 40px auto;
-    text-align: center;
-    padding: 0 20px;
-  }
-  .intro h2 {
-    color: #4E3D42;
-    font-size: 1.8em;
-    margin-bottom: 15px;
-  }
-  .intro p {
-    color: #6D6466;
-    font-size: 1.1em;
-  }
-
-  /* --- Mega Box Container --- */
+  /* --- Container Mega Box --- */
   .mega-box-container {
-    background-color: #fff;
+    background: #fff;
     border-radius: 20px;
     max-width: 700px;
-    margin: 40px auto;
+    width: 100%;
     padding: 40px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
+    transition: all 0.3s ease;
   }
 
   .mega-box-container h2 {
     grid-column: span 2;
-    text-align: center;
     color: #17DED4;
     margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
   }
 
-  /* --- Mini-card input --- */
+  /* --- Mini Cards Input --- */
   .input-card {
     display: flex;
     flex-direction: column;
+    background: #F9F9F9;
     padding: 15px 20px;
     border-radius: 15px;
-    background-color: #E3DBDB;
     border: 2px solid #6D6466;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, border-color 0.3s ease;
   }
-  .input-card:hover { border-color: #17DED4; transform: translateY(-2px); }
-  .input-card label { margin-bottom: 8px; font-weight: 500; color: #4E3D42; }
+
+  .input-card:hover {
+    transform: translateY(-3px);
+    border-color: #17DED4;
+  }
+
+  .input-card label {
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
   .input-card input, .input-card select, .input-card textarea {
     padding: 10px 15px;
-    border-radius: 10px;
     border: 1px solid #6D6466;
+    border-radius: 10px;
     font-size: 1em;
     transition: all 0.3s ease;
   }
+
   .input-card input:focus, .input-card select:focus, .input-card textarea:focus {
     outline: none;
     border-color: #17DED4;
     box-shadow: 0 0 10px rgba(23,222,212,0.3);
   }
-  .full-width { grid-column: span 2; }
-  .textarea-large { min-height: 120px; resize: vertical; }
+
+  /* --- Full Width Elements --- */
+  .full-width {
+    grid-column: span 2;
+  }
+
+  .textarea-large {
+    min-height: 120px;
+    resize: vertical;
+  }
 
   /* --- Pulsante --- */
   button {
@@ -112,43 +99,23 @@
     cursor: pointer;
     transition: all 0.3s ease;
   }
+
   button:hover {
     background-color: #4E3D42;
     color: #E3DBDB;
     transform: translateY(-2px);
   }
 
-  /* --- Footer --- */
-  footer {
-    background-color: #fff;
-    text-align: center;
-    padding: 20px;
-    border-top: 3px solid #17DED4;
-    margin-top: 60px;
-    color: #6D6466;
-  }
-
   /* --- Responsive --- */
-  @media(max-width: 600px) {
-    .mega-box-container { grid-template-columns: 1fr; }
+  @media(max-width: 600px){
+    .mega-box-container {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
 </head>
 <body>
 
-<!-- Header -->
-<header>
-  <h1>Eventi Unici</h1>
-  <p>Organizziamo matrimoni, compleanni e feste indimenticabili</p>
-</header>
-
-<!-- Introduzione -->
-<section class="intro">
-  <h2>Benvenuti nel nostro mondo di eventi</h2>
-  <p>Il nostro team si occupa di trasformare ogni festa in un’esperienza unica e memorabile. Scegli il tipo di evento e raccontaci i tuoi desideri!</p>
-</section>
-
-<!-- Mega Box Prenotazioni -->
 <form class="mega-box-container">
   <h2>Prenota il tuo Evento</h2>
 
@@ -199,14 +166,10 @@
   <button type="submit">Invia Richiesta</button>
 </form>
 
-<!-- Footer -->
-<footer>
-  &copy; 2025 Eventi Unici - Tutti i diritti riservati
-</footer>
-
 <script>
   const tipoSelect = document.getElementById('tipoFesta');
   const altroBox = document.getElementById('altroBox');
+
   tipoSelect.addEventListener('change', function() {
     if(this.value === 'altro') {
       altroBox.style.display = 'block';
@@ -217,4 +180,37 @@
 </script>
 
 </body>
+<script>
+document.querySelector("form").addEventListener("submit", function(e) {
+  e.preventDefault(); // blocca l'invio normale del form
+
+  // raccoglie i dati dal form
+  const nome = document.querySelector('input[placeholder="Mario Rossi"]').value;
+  const email = document.querySelector('input[type="email"]').value;
+  const telefono = document.querySelector('input[type="tel"]').value;
+  const tipo = document.getElementById("tipoFesta").value;
+  const altro = document.getElementById("altroBox").style.display === "block" ? document.querySelector("#altroBox textarea").value : "";
+  const richieste = document.querySelector('textarea[placeholder^="Dettagli"]').value;
+
+  // formatta il contenuto
+  let testo = "----- NUOVA RICHIESTA -----\n";
+  testo += `Nome e Cognome: ${nome}\n`;
+  testo += `Email: ${email}\n`;
+  testo += `Telefono: ${telefono}\n`;
+  testo += `Tipo di Festa: ${tipo}\n`;
+  if (altro) testo += `Descrizione Altro: ${altro}\n`;
+  testo += `Richieste Aggiuntive: ${richieste}\n`;
+  testo += "Data invio: " + new Date().toLocaleString() + "\n";
+  testo += "---------------------------\n\n";
+
+  // crea il file txt e lo scarica
+  const blob = new Blob([testo], { type: "text/plain" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "prenotazione_evento.txt";
+  link.click();
+
+  alert("File generato con successo! Lo trovi nella cartella Download.");
+});
+</script>
 </html>
