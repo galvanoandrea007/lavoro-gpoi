@@ -6,112 +6,163 @@
 <title>Prenotazione Evento</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  /* --- Reset & Base --- */
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #E3DBDB, #6D6466);
-    color: #4E3D42;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
-    padding: 50px 20px;
-  }
+  /* ---------------------------
+   Stile generale - Veloria Event
+---------------------------- */
 
-  /* --- Container Mega Box --- */
-  .mega-box-container {
-    background: #fff;
-    border-radius: 20px;
-    max-width: 700px;
-    width: 100%;
-    padding: 40px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    transition: all 0.3s ease;
-  }
+:root {
+  --bg-color: #faf7f2;
+  --primary-color: #d4a373;
+  --accent-color: #f1e0d6;
+  --text-color: #333;
+  --heading-color: #7a4e2d;
+  --white: #ffffff;
+}
 
-  .mega-box-container h2 {
-    grid-column: span 2;
-    color: #17DED4;
-    margin-bottom: 20px;
-    text-align: center;
-    font-weight: 600;
-  }
+body {
+  margin: 10;
+  font-family: "Poppins", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
 
-  /* --- Mini Cards Input --- */
-  .input-card {
-    display: flex;
-    flex-direction: column;
-    background: #F9F9F9;
-    padding: 15px 20px;
-    border-radius: 15px;
-    border: 2px solid #6D6466;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-  }
+/* ---------------------------
+   Navbar
+---------------------------- */
 
-  .input-card:hover {
-    transform: translateY(-3px);
-    border-color: #17DED4;
-  }
+header {
+  background-color: var(--white);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-  .input-card label {
-    margin-bottom: 8px;
-    font-weight: 500;
-  }
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 15px 0;
+}
 
-  .input-card input, .input-card select, .input-card textarea {
-    padding: 10px 15px;
-    border: 1px solid #6D6466;
-    border-radius: 10px;
-    font-size: 1em;
-    transition: all 0.3s ease;
-  }
+nav ul li {
+  margin: 0 20px;
+}
 
-  .input-card input:focus, .input-card select:focus, .input-card textarea:focus {
-    outline: none;
-    border-color: #17DED4;
-    box-shadow: 0 0 10px rgba(23,222,212,0.3);
-  }
+nav a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
 
-  /* --- Full Width Elements --- */
-  .full-width {
-    grid-column: span 2;
-  }
+nav a:hover,
+nav a.active {
+  color: var(--primary-color);
+}
 
-  .textarea-large {
-    min-height: 120px;
-    resize: vertical;
-  }
+/* ---------------------------
+   Sezioni principali
+---------------------------- */
 
-  /* --- Pulsante --- */
-  button {
-    grid-column: span 2;
-    background-color: #17DED4;
-    color: #4E3D42;
-    font-weight: 600;
-    border: none;
-    border-radius: 12px;
-    padding: 15px;
-    font-size: 1.1em;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
+main {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
 
-  button:hover {
-    background-color: #4E3D42;
-    color: #E3DBDB;
-    transform: translateY(-2px);
-  }
+section {
+  background-color: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  padding: 40px;
+  margin-bottom: 40px;
+}
 
-  /* --- Responsive --- */
-  @media(max-width: 600px){
-    .mega-box-container {
-      grid-template-columns: 1fr;
-    }
-  }
+h1, h2 {
+  color: var(--heading-color);
+}
+
+h1 {
+  border-bottom: 3px solid var(--accent-color);
+  display: inline-block;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+ul li {
+  margin: 10px 0;
+}
+
+/* ---------------------------
+   Citazione / Blocco evidenza
+---------------------------- */
+
+blockquote.citazione {
+  background-color: var(--accent-color);
+  padding: 20px;
+  border-left: 5px solid var(--primary-color);
+  border-radius: 8px;
+  font-style: italic;
+  margin-top: 30px;
+}
+
+/* ---------------------------
+   Footer
+---------------------------- */
+
+footer {
+  background-color: var(--white);
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #777;
+  border-top: 1px solid #eee;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 60px;
+}
+
+/* BOX DEL FORM PIÙ GRANDE E BEN CENTRATO */
+.mega-box-container {
+  max-width: 900px;      /* più grande */
+  width: 90%;            /* occupa quasi tutta la larghezza */
+  margin: 0 auto;        /* centrato */
+  padding: 45px;         /* spazi interni aumentati */
+
+  background: var(--white);
+  border-radius: 18px;
+  border: 1px solid rgba(212,163,115,0.35);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* CARDS PIÙ GRANDI */
+.input-card {
+  padding: 18px 20px;
+}
+
+/* CAMPI PIÙ COMODI */
+.input-card input,
+.input-card select,
+.input-card textarea {
+  padding: 12px 14px;
+  font-size: 1rem;
+}
+
+/* TITOLO PIÙ GRANDE */
+.mega-box-container h2 {
+  font-size: 1.9rem;
+}
 </style>
 </head>
 <body>
