@@ -1,108 +1,303 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Milano Cortina Eventi — Home</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Milano Cortina Eventi</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --dark: #222;
+  --light: #ffffff;
+  --primary: #007BFF;
+  --bg: #f4f4f4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+/* HEADER */
+header {
+  background: var(--dark);
+  color: white;
+  padding: 1rem;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  height: 45px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* MAIN */
+main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1.5rem;
+}
+
+section {
+  background: white;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* EVENTI */
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.event-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1.2rem;
+}
+
+.event-card a {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* OSPITI */
+.vip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.vip-card {
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1.2rem;
+}
+
+.vip-card img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* MAPPA */
+#map {
+  height: 300px;
+  background: #ccc;
+  border-radius: 10px;
+}
+
+/* FOOTER */
+footer {
+  background: var(--dark);
+  color: white;
+  padding: 2rem 1rem;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+footer a {
+  color: #ddd;
+  text-decoration: none;
+  display: block;
+  margin: 6px 0;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .header-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+</style>
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="brand-wrap">
-        <a class="brand" href="index.html">
-          <img src="https://altimanix.github.io/TPS/logo.png" alt="Milano Cortina Eventi - logo" class="site-logo">
-          <span class="brand-text">Milano Cortina Eventi</span>
-        </a>
-      </div>
 
-      <button id="navToggle" class="nav-toggle" aria-label="Apri menu">
-        <span></span><span></span><span></span>
-      </button>
-
-      <nav id="mainNav" class="main-nav" aria-label="Navigazione principale" aria-expanded="false">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="eventi.html">Eventi</a></li>
-          <li><a href="vip.html">Ospiti</a></li>
-          <li><a href="#contatti">Contatti</a></li>
-          <li><a href="prenotazione.html" class="btn-ghost">Prenota</a></li>
-        </ul>
-      </nav>
+<header>
+  <div class="header-container">
+    <div class="logo">
+      <img src="https://altimanix.github.io/TPS/logo.png" alt="Logo">
+      <strong>Milano Cortina Eventi</strong>
     </div>
-  </header>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Eventi</a></li>
+        <li><a href="#">Ospiti</a></li>
+        <li><a href="#">Prenota</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-inner">
-        <div class="hero-text">
-          <h1>Scopri gli eventi di Milano Cortina</h1>
-          <p>Concerti, conferenze e sport — trova l'evento giusto e prenota il tuo posto in pochi click.</p>
-          <div class="hero-cta">
-            <a class="btn" href="eventi.html">Vedi Eventi</a>
-            <a class="btn btn-outline" href="vip.html">Ospiti Speciali</a>
-          </div>
-        </div>
-        <div class="hero-visual" aria-hidden="true">
-          <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=1f10b5b23b7d9aaf44f5f1ecd1d9a4ff" alt="">
-        </div>
-      </div>
-    </section>
+<main>
 
-    <section class="container featured-section">
-      <h2>Eventi in evidenza</h2>
-      <div id="featuredCards" class="cards-grid"></div>
-      <div class="align-center" style="margin-top:1rem">
-        <a class="btn" href="eventi.html">Mostra tutti gli eventi</a>
-      </div>
-    </section>
+<!-- EVENTI -->
+<section>
+  <h2>Eventi in Programma</h2>
+  <div class="event-grid">
 
-    <section class="container map-section">
-      <h2>Dove siamo</h2>
-      <div class="map-responsive">
-        <iframe title="Milano Cortina area" src="https://www.openstreetmap.org/export/embed.html?bbox=11.9%2C45.2%2C12.8%2C46.0&amp;layer=mapnik" style="border:0" loading="lazy"></iframe>
-      </div>
-    </section>
-  </main>
+    <div class="event-card">
+      <h3>Opening Ceremony</h3>
+      <p>12 Gennaio 2025 – Stadio Olimpico</p>
+      <p>Ospiti: Marzone, CiccioGamer89</p>
+      <a href="#">Iscriviti</a>
+    </div>
 
-  <!-- BANNER FINALE CON LINK (richiesto) -->
-  <div class="bottom-banner">
-    <div class="container">
-      <nav class="bottom-links" aria-label="Link rapidi">
-        <a href="index.html">Home</a>
-        <a href="eventi.html">Eventi</a>
-        <a href="vip.html">Ospiti</a>
-        <a href="prenotazione.html">Prenota</a>
-        <a href="#contatti">Contatti</a>
-        <a href="#">Privacy</a>
-        <a href="#">Termini</a>
-        <a href="https://altimanix.github.io/TPS/logo.png" target="_blank" rel="noopener">Logo</a>
-      </nav>
+    <div class="event-card">
+      <h3>Gaming Winter Show</h3>
+      <p>14 Gennaio 2025 – Arena Digitale</p>
+      <p>Ospiti: CiccioGamer89</p>
+      <a href="#">Iscriviti</a>
+    </div>
+
+    <div class="event-card">
+      <h3>Sport & Creator Meet</h3>
+      <p>16 Gennaio 2025 – Centro Eventi</p>
+      <p>Ospiti: Marzone, Filippo Turetta</p>
+      <a href="#">Iscriviti</a>
+    </div>
+
+    <div class="event-card">
+      <h3>Ice Night Party</h3>
+      <p>18 Gennaio 2025 – Cortina</p>
+      <p>Ospiti: DJ Special Guest</p>
+      <a href="#">Iscriviti</a>
+    </div>
+
+    <div class="event-card">
+      <h3>Closing Ceremony</h3>
+      <p>20 Gennaio 2025 – Milano</p>
+      <p>Ospiti: Tutti i VIP</p>
+      <a href="#">Iscriviti</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- OSPITI -->
+<section>
+  <h2>Ospiti Speciali</h2>
+  <div class="vip-grid">
+
+    <div class="vip-card">
+      <img src="vip_marzone.jpg" alt="">
+      <h3>Francesco Marzano</h3>
+      <p>Detto “Il Marzone” o “Il Maestro”. Ospite principale e intrattenitore.</p>
+      <p>Eventi: Opening, Sport & Creator</p>
+    </div>
+
+    <div class="vip-card">
+      <img src="vip_ciccio.jpg" alt="">
+      <h3>CiccioGamer89</h3>
+      <p>Creator e gamer di fama nazionale.</p>
+      <p>Eventi: Opening, Gaming Winter Show</p>
+    </div>
+
+    <div class="vip-card">
+      <img src="vip_turetta.jpg" alt="">
+      <h3>Filippo Turetta</h3>
+      <p>Ospite speciale e partecipante agli eventi creator.</p>
+      <p>Eventi: Sport & Creator</p>
+    </div>
+
+    <div class="vip-card">
+      <img src="vip_dj.jpg" alt="">
+      <h3>DJ Ice</h3>
+      <p>DJ ufficiale delle serate notturne.</p>
+      <p>Eventi: Ice Night Party</p>
+    </div>
+
+    <div class="vip-card">
+      <img src="vip_host.jpg" alt="">
+      <h3>Host Ufficiale</h3>
+      <p>Presentatore delle cerimonie.</p>
+      <p>Eventi: Opening, Closing</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- MAPPA -->
+<section>
+  <h2>Mappa Eventi</h2>
+  <div id="map"></div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-container">
+    <div>
+      <strong>Milano Cortina Eventi</strong>
+      <p>Eventi ufficiali 2025</p>
+    </div>
+    <div>
+      <a href="#">Home</a>
+      <a href="#">Eventi</a>
+      <a href="#">Ospiti</a>
+    </div>
+    <div>
+      <a href="#">Prenotazioni</a>
+      <a href="#">Contatti</a>
+      <a href="#">Privacy</a>
     </div>
   </div>
+</footer>
 
-  <footer class="site-footer" id="contatti">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <h3>Milano Cortina Eventi</h3>
-          <p>Via Esempio 1 — Milano</p>
-          <p>Email: info@milano-cortina.it</p>
-        </div>
-        <div>
-          <h4>Links</h4>
-          <ul>
-            <li><a href="eventi.html">Eventi</a></li>
-            <li><a href="vip.html">Ospiti</a></li>
-            <li><a href="prenotazione.html">Prenota</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <p class="copyright">&copy; 2025 Milano Cortina Eventi</p>
-    </div>
-  </footer>
-
-  <script src="scripts.js"></script>
 </body>
 </html>
