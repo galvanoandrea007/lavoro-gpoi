@@ -4,59 +4,82 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Milano Cortina Eventi</title>
+
   <style>
-    /* Stile base */
+    /* RESET BASE */
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
       background-color: #f4f4f4;
+      line-height: 1.5;
     }
 
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    /* HEADER + NAV */
     header {
       background-color: #222;
-      color: #fff;
-      padding: 10px 0;
-      text-align: center;
+      color: white;
+      padding: 1rem;
     }
 
     nav ul {
       list-style: none;
       padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
     }
 
-    nav ul li {
-      display: inline;
-      margin-right: 20px;
-    }
-
-    a {
+    nav a {
       color: white;
       text-decoration: none;
+      font-weight: bold;
     }
 
-    /* Sezione Registrazione */
+    /* MAIN */
+    main {
+      padding: 1rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* REGISTRAZIONE */
     #registrazione {
-      background-color: #fff;
-      padding: 20px;
-      margin-top: 20px;
+      background: white;
+      padding: 1.5rem;
       border-radius: 8px;
+      margin-bottom: 2rem;
     }
 
-    form input {
-      padding: 10px;
-      margin: 10px 0;
-      width: 100%;
-      border: 1px solid #ccc;
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    form input,
+    form button {
+      padding: 0.7rem;
       border-radius: 4px;
+      border: 1px solid #ccc;
     }
 
     form button {
-      padding: 10px;
       background-color: #007BFF;
       color: white;
       border: none;
-      border-radius: 4px;
       cursor: pointer;
     }
 
@@ -64,228 +87,194 @@
       background-color: #0056b3;
     }
 
-    /* Sezione Eventi Preview */
+    /* EVENTI PREVIEW */
     #eventi-preview {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 20px;
+      margin-bottom: 2rem;
+    }
+
+    #eventi-preview .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
     }
 
     .event-card {
-      background-color: #fff;
-      padding: 20px;
-      margin: 10px;
+      background: white;
+      padding: 1rem;
       border-radius: 8px;
-      width: 45%;
-    }
-
-    .event-card h3 {
-      margin: 0;
     }
 
     .event-card a {
       color: #007BFF;
+      font-weight: bold;
     }
 
-    /* Sezione Mappa */
+    /* MAPPA */
     #map-container {
+      width: 100%;
       height: 300px;
       background-color: #ccc;
-      margin-top: 20px;
+      border-radius: 8px;
+      margin-bottom: 2rem;
     }
 
-    /* Sezione Eventi */
+    /* EVENTI LISTA */
+    #eventi {
+      padding: 1rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
     .event-list {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
     }
 
     .event-item {
-      background-color: #fff;
-      margin: 10px;
-      padding: 20px;
-      width: 45%;
+      background: white;
+      padding: 1rem;
       border-radius: 8px;
-    }
-
-    .event-item h3 {
-      margin: 0;
     }
 
     .event-item a {
       color: #007BFF;
+      font-weight: bold;
     }
 
-    /* Sezione Ospiti Speciali */
+    /* VIP */
+    #vip {
+      padding: 1rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
     .vip-list {
-      display: flex;
-      flex-wrap: wrap;
-      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
     }
 
     .vip-item {
-      background-color: #fff;
-      padding: 20px;
-      margin: 10px;
-      width: 45%;
+      background: white;
+      padding: 1rem;
       border-radius: 8px;
+      text-align: center;
     }
 
     .vip-item img {
       width: 100%;
-      height: auto;
+      max-height: 200px;
+      object-fit: cover;
       border-radius: 8px;
     }
 
-    /* Footer */
+    /* FOOTER */
     footer {
       background-color: #222;
       color: white;
       text-align: center;
-      padding: 10px 0;
-      margin-top: 20px;
+      padding: 1rem;
+      margin-top: 2rem;
     }
 
-    /* Responsività */
-    @media (max-width: 768px) {
-      #eventi-preview {
+    /* MOBILE NAV */
+    @media (max-width: 600px) {
+      nav ul {
         flex-direction: column;
-      }
-
-      .event-card,
-      .event-item,
-      .vip-item {
-        width: 100%;
-      }
-
-      .event-list {
-        flex-direction: column;
-      }
-
-      .vip-list {
-        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
       }
     }
   </style>
 </head>
+
 <body>
 
-<!-- Header con navigazione -->
 <header>
   <nav>
     <ul>
       <li><a href="#">Home</a></li>
       <li><a href="#eventi">Eventi</a></li>
-      <li><a href="#vip">Ospiti Speciali</a></li>
+      <li><a href="#vip">Ospiti</a></li>
       <li><a href="#contatti">Contatti</a></li>
       <li><a href="#login">Login</a></li>
     </ul>
   </nav>
 </header>
 
-<!-- Home Page -->
 <main>
-  <!-- Sezione Registrazione -->
+
   <section id="registrazione">
     <h2>Registrati per Accedere agli Eventi</h2>
-    <form id="register-form">
+    <form>
       <input type="text" placeholder="Nome" required>
       <input type="email" placeholder="Email" required>
       <input type="password" placeholder="Password" required>
-      <button type="submit">Registrati</button>
+      <button>Registrati</button>
     </form>
   </section>
 
-  <!-- Anteprima Eventi -->
   <section id="eventi-preview">
     <h2>Eventi In Arrivo</h2>
-    <div class="event-card">
-      <h3>Evento 1</h3>
-      <p>Data: 12 Gennaio 2025</p>
-      <a href="#">Dettagli</a>
-    </div>
-    <div class="event-card">
-      <h3>Evento 2</h3>
-      <p>Data: 15 Gennaio 2025</p>
-      <a href="#">Dettagli</a>
+    <div class="cards">
+      <div class="event-card">
+        <h3>Evento 1</h3>
+        <p>12 Gennaio 2025</p>
+        <a href="#">Dettagli</a>
+      </div>
+      <div class="event-card">
+        <h3>Evento 2</h3>
+        <p>15 Gennaio 2025</p>
+        <a href="#">Dettagli</a>
+      </div>
     </div>
   </section>
 
-  <!-- Mappa Interattiva -->
-  <section id="mappa">
+  <section>
     <h2>Mappa Interattiva</h2>
     <div id="map-container"></div>
   </section>
+
 </main>
 
-<!-- Sezione Eventi -->
 <section id="eventi">
   <h2>Eventi di Milano Cortina</h2>
   <div class="event-list">
     <div class="event-item">
       <h3>Evento 1</h3>
-      <p>Data: 12 Gennaio 2025</p>
-      <p>Orario: 10:00 AM</p>
-      <p>Luogo: Stadio Olimpico</p>
+      <p>12 Gennaio 2025 – 10:00</p>
+      <p>Stadio Olimpico</p>
       <a href="#">Iscriviti</a>
     </div>
     <div class="event-item">
       <h3>Evento 2</h3>
-      <p>Data: 15 Gennaio 2025</p>
-      <p>Orario: 2:00 PM</p>
-      <p>Luogo: Pista di Sci</p>
+      <p>15 Gennaio 2025 – 14:00</p>
+      <p>Pista di Sci</p>
       <a href="#">Iscriviti</a>
     </div>
   </div>
 </section>
 
-<!-- Sezione Ospiti Speciali / VIP -->
 <section id="vip">
   <h2>Ospiti Speciali</h2>
   <div class="vip-list">
     <div class="vip-item">
       <h3>Ospite 1</h3>
-      <img src="vip1.jpg" alt="Ospite 1">
-      <p>Descrizione dell'ospite</p>
-      <p>Eventi: Evento 1, Evento 3</p>
+      <img src="vip1.jpg" alt="">
+      <p>Descrizione ospite</p>
     </div>
     <div class="vip-item">
       <h3>Ospite 2</h3>
-      <img src="vip2.jpg" alt="Ospite 2">
-      <p>Descrizione dell'ospite</p>
-      <p>Eventi: Evento 2, Evento 4</p>
+      <img src="vip2.jpg" alt="">
+      <p>Descrizione ospite</p>
     </div>
   </div>
 </section>
 
-<!-- Footer -->
 <footer>
   <p>&copy; 2025 Milano Cortina Eventi</p>
 </footer>
-
-<!-- JavaScript -->
-<script>
-  // Inizializzazione della mappa
-  function initMap() {
-    const milanoCortina = { lat: 46.25, lng: 12.65 };  // Coordinate di Milano Cortina
-    const map = new google.maps.Map(document.getElementById("map-container"), {
-      zoom: 12,
-      center: milanoCortina,
-    });
-
-    // Aggiungi un marker
-    new google.maps.Marker({
-      position: milanoCortina,
-      map: map,
-      title: "Milano Cortina Eventi",
-    });
-  }
-  
-  // Caricamento della mappa
-  window.onload = function () {
-    initMap();
-  };
-</script>
 
 </body>
 </html>
