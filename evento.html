@@ -9,9 +9,14 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="index.html">Milano Cortina Eventi</a>
+      <div class="brand-wrap">
+        <a class="brand" href="index.html">
+          <img src="https://altimanix.github.io/TPS/logo.png" alt="Logo" class="site-logo">
+          <span class="brand-text">Milano Cortina Eventi</span>
+        </a>
+      </div>
       <button id="navToggle3" class="nav-toggle" aria-label="Apri menu"><span></span><span></span><span></span></button>
-      <nav id="mainNav3" class="main-nav">
+      <nav id="mainNav3" class="main-nav" aria-expanded="false">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="eventi.html">Eventi</a></li>
@@ -22,10 +27,20 @@
   </header>
 
   <main>
-    <section class="container event-detail" id="eventDetailContainer">
-      <!-- Contenuto dinamico inserito da scripts.js -->
-    </section>
+    <section class="container event-detail" id="eventDetailContainer"></section>
   </main>
+
+  <div class="bottom-banner">
+    <div class="container">
+      <nav class="bottom-links" aria-label="Link rapidi">
+        <a href="index.html">Home</a>
+        <a href="eventi.html">Eventi</a>
+        <a href="vip.html">Ospiti</a>
+        <a href="prenotazione.html">Prenota</a>
+        <a href="#contatti">Contatti</a>
+      </nav>
+    </div>
+  </div>
 
   <footer class="site-footer">
     <div class="container">
