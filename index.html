@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Milano Cortina Eventi — Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Milano Cortina Eventi</a>
+
+      <button id="navToggle" class="nav-toggle" aria-label="Apri menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="mainNav" class="main-nav" aria-label="Navigazione principale">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="eventi.html">Eventi</a></li>
+          <li><a href="vip.html">Ospiti</a></li>
+          <li><a href="#contatti">Contatti</a></li>
+          <li><a href="prenotazione.html" class="btn-ghost">Prenota</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h1>Scopri gli eventi di Milano Cortina</h1>
+          <p>Concerti, conferenze e sport — trova l'evento giusto e prenota il tuo posto in pochi click.</p>
+          <div class="hero-cta">
+            <a class="btn" href="eventi.html">Vedi Eventi</a>
+            <a class="btn btn-outline" href="vip.html">Ospiti Speciali</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=1f10b5b23b7d9aaf44f5f1ecd1d9a4ff" alt="">
+        </div>
+      </div>
+    </section>
+
+    <section class="container featured-section">
+      <h2>Eventi in evidenza</h2>
+      <div id="featuredCards" class="cards-grid"></div>
+      <div class="align-center">
+        <a class="btn" href="eventi.html">Mostra tutti gli eventi</a>
+      </div>
+    </section>
+
+    <section class="container map-section">
+      <h2>Dove siamo</h2>
+      <div class="map-responsive">
+        <iframe title="Milano Cortina area" src="https://www.openstreetmap.org/export/embed.html?bbox=11.9%2C45.2%2C12.8%2C46.0&amp;layer=mapnik" style="border:0" loading="lazy"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contatti">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>Milano Cortina Eventi</h3>
+          <p>Via Esempio 1 — Milano</p>
+          <p>Email: info@milano-cortina.it</p>
+        </div>
+        <div>
+          <h4>Links</h4>
+          <ul>
+            <li><a href="eventi.html">Eventi</a></li>
+            <li><a href="vip.html">Ospiti</a></li>
+            <li><a href="prenotazione.html">Prenota</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="copyright">&copy; 2025 Milano Cortina Eventi</p>
+    </div>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
