@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Prenotazione — Milano Cortina</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Milano Cortina Eventi</a>
+      <button id="navToggle4" class="nav-toggle" aria-label="Apri menu"><span></span><span></span><span></span></button>
+      <nav id="mainNav4" class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="eventi.html">Eventi</a></li>
+          <li><a href="vip.html">Ospiti</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container booking-section">
+      <h2>Prenota il tuo posto</h2>
+
+      <div id="selectedEventBox" class="card"></div>
+
+      <form id="bookingForm" class="booking-form">
+        <label>Nome e Cognome
+          <input id="bookName" required type="text" placeholder="Mario Rossi">
+        </label>
+
+        <label>Email
+          <input id="bookEmail" required type="email" placeholder="mario@example.com">
+        </label>
+
+        <label>Telefono
+          <input id="bookPhone" required type="tel" placeholder="+39 333 1234567">
+        </label>
+
+        <label>Quantità biglietti
+          <input id="bookQty" required type="number" min="1" max="10" value="1">
+        </label>
+
+        <button type="submit" class="btn">Conferma prenotazione</button>
+      </form>
+
+      <div id="bookingMessage" class="mt-1" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Milano Cortina Eventi</p>
+    </div>
+  </footer>
+
+  <script src="scripts.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      window.initBookingPage?.();
+    });
+  </script>
+</body>
+</html>
