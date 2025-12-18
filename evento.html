@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dettaglio Evento — Milano Cortina</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Milano Cortina Eventi</a>
+      <button id="navToggle3" class="nav-toggle" aria-label="Apri menu"><span></span><span></span><span></span></button>
+      <nav id="mainNav3" class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="eventi.html">Eventi</a></li>
+          <li><a href="vip.html">Ospiti</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container event-detail" id="eventDetailContainer">
+      <!-- Contenuto dinamico inserito da scripts.js -->
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Milano Cortina Eventi</p>
+    </div>
+  </footer>
+
+  <script src="scripts.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      window.renderEventDetail?.();
+    });
+  </script>
+</body>
+</html>
