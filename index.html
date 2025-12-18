@@ -9,13 +9,18 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="index.html">Milano Cortina Eventi</a>
+      <div class="brand-wrap">
+        <a class="brand" href="index.html">
+          <img src="https://altimanix.github.io/TPS/logo.png" alt="Milano Cortina Eventi - logo" class="site-logo">
+          <span class="brand-text">Milano Cortina Eventi</span>
+        </a>
+      </div>
 
       <button id="navToggle" class="nav-toggle" aria-label="Apri menu">
         <span></span><span></span><span></span>
       </button>
 
-      <nav id="mainNav" class="main-nav" aria-label="Navigazione principale">
+      <nav id="mainNav" class="main-nav" aria-label="Navigazione principale" aria-expanded="false">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="eventi.html">Eventi</a></li>
@@ -47,7 +52,7 @@
     <section class="container featured-section">
       <h2>Eventi in evidenza</h2>
       <div id="featuredCards" class="cards-grid"></div>
-      <div class="align-center">
+      <div class="align-center" style="margin-top:1rem">
         <a class="btn" href="eventi.html">Mostra tutti gli eventi</a>
       </div>
     </section>
@@ -59,6 +64,22 @@
       </div>
     </section>
   </main>
+
+  <!-- BANNER FINALE CON LINK (richiesto) -->
+  <div class="bottom-banner">
+    <div class="container">
+      <nav class="bottom-links" aria-label="Link rapidi">
+        <a href="index.html">Home</a>
+        <a href="eventi.html">Eventi</a>
+        <a href="vip.html">Ospiti</a>
+        <a href="prenotazione.html">Prenota</a>
+        <a href="#contatti">Contatti</a>
+        <a href="#">Privacy</a>
+        <a href="#">Termini</a>
+        <a href="https://altimanix.github.io/TPS/logo.png" target="_blank" rel="noopener">Logo</a>
+      </nav>
+    </div>
+  </div>
 
   <footer class="site-footer" id="contatti">
     <div class="container">
