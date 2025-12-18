@@ -1,267 +1,73 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prenotazione Evento</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  /* ---------------------------
-   Stile generale - Veloria Event
----------------------------- */
-
-:root {
-  --bg-color: #faf7f2;
-  --primary-color: #d4a373;
-  --accent-color: #f1e0d6;
-  --text-color: #333;
-  --heading-color: #7a4e2d;
-  --white: #ffffff;
-}
-
+/* FIX BASE */
 body {
-  margin: 10;
-  font-family: "Poppins", Arial, sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  line-height: 1.6;
-}
-
-/* ---------------------------
-   Navbar
----------------------------- */
-
-header {
-  background-color: var(--white);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
   margin: 0;
-  padding: 15px 0;
+  padding: 0;
 }
 
-nav ul li {
-  margin: 0 20px;
-}
-
-nav a {
-  text-decoration: none;
-  color: var(--text-color);
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-nav a:hover,
-nav a.active {
-  color: var(--primary-color);
-}
-
-/* ---------------------------
-   Sezioni principali
----------------------------- */
-
-main {
-  max-width: 1100px;
-  margin: 40px auto;
-  padding: 0 20px;
-}
-
-section {
-  background-color: var(--white);
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  padding: 40px;
-  margin-bottom: 40px;
-}
-
-h1, h2 {
-  color: var(--heading-color);
-}
-
-h1 {
-  border-bottom: 3px solid var(--accent-color);
-  display: inline-block;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-}
-
-ul {
-  padding-left: 20px;
-}
-
-ul li {
-  margin: 10px 0;
-}
-
-/* ---------------------------
-   Citazione / Blocco evidenza
----------------------------- */
-
-blockquote.citazione {
-  background-color: var(--accent-color);
-  padding: 20px;
-  border-left: 5px solid var(--primary-color);
-  border-radius: 8px;
-  font-style: italic;
-  margin-top: 30px;
-}
-
-/* ---------------------------
-   Footer
----------------------------- */
-
-footer {
-  background-color: var(--white);
-  text-align: center;
-  padding: 20px;
-  font-size: 14px;
-  color: #777;
-  border-top: 1px solid #eee;
-}
-
-body {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding-top: 60px;
-}
-
-/* BOX DEL FORM PIÙ GRANDE E BEN CENTRATO */
+/* CONTENITORE FORM RESPONSIVE */
 .mega-box-container {
-  max-width: 900px;      /* più grande */
-  width: 90%;            /* occupa quasi tutta la larghezza */
-  margin: 0 auto;        /* centrato */
-  padding: 45px;         /* spazi interni aumentati */
-
-  background: var(--white);
-  border-radius: 18px;
-  border: 1px solid rgba(212,163,115,0.35);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: clamp(24px, 5vw, 45px);
 }
 
-/* CARDS PIÙ GRANDI */
+/* INPUT CARD */
 .input-card {
-  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
 }
 
-/* CAMPI PIÙ COMODI */
+/* INPUT / SELECT / TEXTAREA */
 .input-card input,
 .input-card select,
 .input-card textarea {
-  padding: 12px 14px;
-  font-size: 1rem;
+  width: 100%;
+  font-size: clamp(0.95rem, 2.5vw, 1rem);
 }
 
-/* TITOLO PIÙ GRANDE */
+/* TEXTAREA */
+.textarea-large {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* BOTTONE */
+button[type="submit"] {
+  width: 100%;
+  margin-top: 25px;
+  padding: 14px;
+  font-size: 1.05rem;
+  border-radius: 10px;
+}
+
+/* TITOLI RESPONSIVE */
 .mega-box-container h2 {
-  font-size: 1.9rem;
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  text-align: center;
 }
-</style>
-</head>
-<body>
 
-<form class="mega-box-container">
-  <h2>Prenota il tuo Evento</h2>
+/* MOBILE */
+@media (max-width: 480px) {
+  body {
+    padding-top: 30px;
+  }
 
-  <!-- Nome e Cognome -->
-  <div class="input-card">
-    <label>Nome e Cognome</label>
-    <input type="text" placeholder="Mario Rossi" required>
-  </div>
+  .mega-box-container {
+    padding: 22px;
+    border-radius: 14px;
+  }
 
-  <!-- Email -->
-  <div class="input-card">
-    <label>Email</label>
-    <input type="email" placeholder="mario@example.com" required>
-  </div>
+  label {
+    font-size: 0.9rem;
+  }
+}
 
-  <!-- Telefono -->
-  <div class="input-card">
-    <label>Telefono</label>
-    <input type="tel" placeholder="+39 333 1234567" required>
-  </div>
-
-  <!-- Tipo di Festa -->
-  <div class="input-card full-width">
-    <label>Tipo di Festa</label>
-    <select id="tipoFesta" required>
-      <option value="">Seleziona</option>
-      <option value="matrimonio">Matrimonio</option>
-      <option value="compleanno">Compleanno</option>
-      <option value="addioNubilato">Addio al Nubilato</option>
-      <option value="addioCelibato">Addio al Celibato</option>
-      <option value="altro">Altro</option>
-    </select>
-  </div>
-
-  <!-- Box Altro Evento -->
-  <div class="input-card full-width" id="altroBox" style="display:none;">
-    <label>Descrivi il tipo di festa</label>
-    <textarea class="textarea-large" placeholder="Scrivi come vuoi la tua festa..."></textarea>
-  </div>
-
-  <!-- Box Richieste Aggiuntive -->
-  <div class="input-card full-width">
-    <label>Richieste Aggiuntive</label>
-    <textarea class="textarea-large" placeholder="Dettagli extra, desideri particolari..."></textarea>
-  </div>
-
-  <!-- Pulsante Invio -->
-  <button type="submit">Invia Richiesta</button>
-</form>
-
-<script>
-  const tipoSelect = document.getElementById('tipoFesta');
-  const altroBox = document.getElementById('altroBox');
-
-  tipoSelect.addEventListener('change', function() {
-    if(this.value === 'altro') {
-      altroBox.style.display = 'block';
-    } else {
-      altroBox.style.display = 'none';
-    }
-  });
-</script>
-
-</body>
-<script>
-document.querySelector("form").addEventListener("submit", function(e) {
-  e.preventDefault(); // blocca l'invio normale del form
-
-  // raccoglie i dati dal form
-  const nome = document.querySelector('input[placeholder="Mario Rossi"]').value;
-  const email = document.querySelector('input[type="email"]').value;
-  const telefono = document.querySelector('input[type="tel"]').value;
-  const tipo = document.getElementById("tipoFesta").value;
-  const altro = document.getElementById("altroBox").style.display === "block" ? document.querySelector("#altroBox textarea").value : "";
-  const richieste = document.querySelector('textarea[placeholder^="Dettagli"]').value;
-
-  // formatta il contenuto
-  let testo = "----- NUOVA RICHIESTA -----\n";
-  testo += `Nome e Cognome: ${nome}\n`;
-  testo += `Email: ${email}\n`;
-  testo += `Telefono: ${telefono}\n`;
-  testo += `Tipo di Festa: ${tipo}\n`;
-  if (altro) testo += `Descrizione Altro: ${altro}\n`;
-  testo += `Richieste Aggiuntive: ${richieste}\n`;
-  testo += "Data invio: " + new Date().toLocaleString() + "\n";
-  testo += "---------------------------\n\n";
-
-  // crea il file txt e lo scarica
-  const blob = new Blob([testo], { type: "text/plain" });
-  const link = document.createElement("a");
-  link.href = URL.createObjectURL(blob);
-  link.download = "prenotazione_evento.txt";
-  link.click();
-
-  alert("File generato con successo! Lo trovi nella cartella Download.");
-});
-</script>
-</html>
+/* TABLET */
+@media (max-width: 768px) {
+  .mega-box-container {
+    width: 95%;
+  }
+}
