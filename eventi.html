@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Eventi — Milano Cortina</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- header (idem index) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Milano Cortina Eventi</a>
+      <button id="navToggle2" class="nav-toggle" aria-label="Apri menu"><span></span><span></span><span></span></button>
+      <nav id="mainNav2" class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a class="active" href="eventi.html">Eventi</a></li>
+          <li><a href="vip.html">Ospiti</a></li>
+          <li><a href="#contatti">Contatti</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container">
+      <h2>Tutti gli eventi</h2>
+
+      <div class="filters">
+        <input id="searchInput" type="search" placeholder="Cerca per titolo o luogo..." aria-label="Cerca eventi">
+        <select id="categoriaFilter" aria-label="Filtro categoria">
+          <option value="">Tutte le categorie</option>
+        </select>
+        <input id="dataFilter" type="date" aria-label="Filtro data">
+      </div>
+
+      <div id="eventsGrid" class="cards-grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Milano Cortina Eventi</p>
+    </div>
+  </footer>
+
+  <script src="scripts.js"></script>
+  <script>
+    // Inizializza pagina eventi
+    document.addEventListener('DOMContentLoaded', function () {
+      window.initEventsPage?.();
+    });
+  </script>
+</body>
+</html>
