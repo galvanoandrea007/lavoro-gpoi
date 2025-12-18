@@ -1,5 +1,4 @@
 /* Shared JS: dati eventi, render, nav toggle, pagine dinamiche */
-/* Colloca questo file nella stessa cartella dei .html */
 
 const EVENTS = [
   {
@@ -49,20 +48,46 @@ const EVENTS = [
     postiDisponibili: 2000,
     descrizione: "Gara su percorso cittadino aperta a tutti con categorie competitive.",
     img: "https://images.unsplash.com/photo-1520975922284-6c1b3f5e33a2?q=80&w=1200&auto=format&fit=crop"
+  },
+  {
+    id: "evt-5",
+    titolo: "Gala del Cinema Italiano",
+    categoria: "Cultura",
+    data: "2025-11-05",
+    ora: "20:30",
+    luogo: "Milano - Teatro Nazionale",
+    prezzo: 85,
+    postiDisponibili: 800,
+    descrizione: "Premiazione e proiezioni speciali con ospiti del cinema italiano.",
+    img: "https://images.unsplash.com/photo-1505682634904-d7c0b3f5b4b2?q=80&w=1200&auto=format&fit=crop"
+  },
+  {
+    id: "evt-6",
+    titolo: "Fiera Startup & Innovation",
+    categoria: "Business",
+    data: "2025-10-12",
+    ora: "10:00",
+    luogo: "Milano - Fiera Milano Rho",
+    prezzo: 20,
+    postiDisponibili: 1500,
+    descrizione: "Esposizione startup, pitch e networking per investitori e professionisti.",
+    img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop"
   }
 ];
 
 const VIPS = [
   { nome: "Luca Rossi", ruolo: "Conduttore", img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop", bio: "Conduttore TV e speaker."},
-  { nome: "Giulia Bianchi", ruolo: "Atleta", img: "https://images.unsplash.com/photo-1545996124-8a6f2b8b9e84?q=80&w=800&auto=format&fit=crop", bio: "Campionessa nazionale."}
+  { nome: "Giulia Bianchi", ruolo: "Atleta", img: "https://images.unsplash.com/photo-1545996124-8a6f2b8b9e84?q=80&w=800&auto=format&fit=crop", bio: "Campionessa nazionale."},
+  { nome: "Marco Velluto", ruolo: "Regista", img: "https://images.unsplash.com/photo-1531123414780-f5b0a8f2c6f9?q=80&w=800&auto=format&fit=crop", bio: "Regista e produttore con diversi premi."},
+  { nome: "Sara Verdi", ruolo: "Imprenditrice", img: "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=800&auto=format&fit=crop", bio: "Fondatrice di una nota startup tech."},
+  { nome: "Paolo Neri", ruolo: "Chef", img: "https://images.unsplash.com/photo-1523475496153-3d6cc4ad9b8b?q=80&w=800&auto=format&fit=crop", bio: "Chef stellato ospite per cene evento."}
 ];
 
-/* NAV TOGGLE (duplica su tutte le pagine) */
+/* NAV TOGGLE */
 function initNavToggle() {
   const btns = document.querySelectorAll('.nav-toggle');
   btns.forEach(btn => {
     btn.addEventListener('click', () => {
-      // trova nav immediatamente successiva nella stessa header
       const header = btn.closest('.header-inner');
       const nav = header.querySelector('.main-nav');
       const isOpen = nav.getAttribute('aria-expanded') === 'true';
@@ -71,7 +96,7 @@ function initNavToggle() {
   });
 }
 
-/* Render cards generiche */
+/* Render card */
 function createEventCard(evt) {
   const card = document.createElement('article');
   card.className = 'event-card card';
@@ -79,7 +104,7 @@ function createEventCard(evt) {
     <img src="${evt.img}" alt="${evt.titolo}" style="width:100%;height:150px;object-fit:cover;border-radius:8px;margin-bottom:.6rem">
     <h3>${evt.titolo}</h3>
     <p>${evt.data} — ${evt.luogo}</p>
-    <p>${evt.descrizione.substring(0,100)}${evt.descrizione.length>100?'…':''}</p>
+    <p>${evt.descrizione.substring(0,120)}${evt.descrizione.length>120?'…':''}</p>
     <div style="display:flex;justify-content:space-between;align-items:center;margin-top:.6rem">
       <a href="evento.html?id=${encodeURIComponent(evt.id)}" class="btn-outline">Dettagli</a>
       <button class="btn" onclick="selectEventAndGo('${evt.id}')">Prenota</button>
@@ -88,7 +113,6 @@ function createEventCard(evt) {
   return card;
 }
 
-/* Inizializza home (featured) */
 function renderFeatured() {
   const container = document.getElementById('featuredCards');
   if(!container) return;
@@ -97,7 +121,7 @@ function renderFeatured() {
   featured.forEach(e => container.appendChild(createEventCard(e)));
 }
 
-/* Inizializza pagina eventi */
+/* Events page */
 function initEventsPage(){
   initNavToggle();
 
@@ -106,7 +130,6 @@ function initEventsPage(){
   const search = document.getElementById('searchInput');
   const dateFilter = document.getElementById('dataFilter');
 
-  // popola categorie
   const cats = Array.from(new Set(EVENTS.map(e => e.categoria)));
   cats.forEach(c => {
     const opt = document.createElement('option'); opt.value = c; opt.textContent = c;
@@ -124,7 +147,6 @@ function initEventsPage(){
 
   render(EVENTS);
 
-  // filtri
   function applyFilters(){
     const q = search.value.trim().toLowerCase();
     const cat = catSelect.value;
@@ -144,7 +166,7 @@ function initEventsPage(){
   dateFilter.addEventListener('change', applyFilters);
 }
 
-/* Seleziona evento e vai a prenotazione (salva in localStorage) */
+/* Select event and go to booking */
 function selectEventAndGo(id){
   const ev = EVENTS.find(x => x.id === id);
   if(!ev) return;
@@ -152,7 +174,7 @@ function selectEventAndGo(id){
   window.location.href = 'prenotazione.html';
 }
 
-/* Render dettaglio evento */
+/* Event detail */
 function renderEventDetail(){
   initNavToggle();
   const container = document.getElementById('eventDetailContainer');
@@ -183,7 +205,7 @@ function renderEventDetail(){
   `;
 }
 
-/* Pagina prenotazione */
+/* Booking page */
 function initBookingPage(){
   initNavToggle();
   const box = document.getElementById('selectedEventBox');
@@ -211,14 +233,12 @@ function initBookingPage(){
     const tel = document.getElementById('bookPhone').value.trim();
     const qty = parseInt(document.getElementById('bookQty').value,10) || 1;
 
-    // semplice check posti
     if(qty > selected.postiDisponibili){
       msg.textContent = 'Numero di posti richiesti superiore alla disponibilità.';
       msg.style.color = 'crimson';
       return;
     }
 
-    // crea prenotazione
     const prenotazione = {
       id: 'bk-' + Date.now(),
       eventoId: selected.id,
@@ -227,16 +247,13 @@ function initBookingPage(){
       dataPrenotazione: new Date().toISOString()
     };
 
-    // salva in localStorage
     const all = JSON.parse(localStorage.getItem('bookings') || '[]');
     all.push(prenotazione);
     localStorage.setItem('bookings', JSON.stringify(all));
 
-    // aggiorna postiDisponibili (solo in memoria: EVENTS)
     const evIdx = EVENTS.findIndex(x => x.id === selected.id);
     if(evIdx >= 0) EVENTS[evIdx].postiDisponibili -= qty;
 
-    // genera file txt con riepilogo
     let testo = `RIEPILOGO PRENOTAZIONE\n\nEvento: ${prenotazione.titolo}\nNome: ${prenotazione.nome}\nEmail: ${prenotazione.email}\nTelefono: ${prenotazione.tel}\nQuantità: ${prenotazione.qty}\nData invio: ${new Date().toLocaleString()}\n`;
     const blob = new Blob([testo], { type: 'text/plain' });
     const a = document.createElement('a');
@@ -250,7 +267,7 @@ function initBookingPage(){
   });
 }
 
-/* Render VIPs */
+/* VIP render */
 function renderVIPs(){
   initNavToggle();
   const grid = document.getElementById('vipGrid');
@@ -275,7 +292,7 @@ document.addEventListener('DOMContentLoaded', function(){
   renderFeatured();
 });
 
-/* Esporre funzioni globali per pagine */
+/* Expose functions to pages */
 window.initEventsPage = initEventsPage;
 window.selectEventAndGo = selectEventAndGo;
 window.renderEventDetail = renderEventDetail;
