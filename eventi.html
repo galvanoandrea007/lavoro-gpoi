@@ -5,6 +5,25 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Eventi — Milano Cortina</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .bottom-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #0b1220;
+      color: #fff;
+      padding: 0.65rem 1rem;
+      text-align: center;
+      z-index: 1000;
+    }
+    .bottom-banner a {
+      color: #9fb8ff;
+      margin: 0 0.5rem;
+      text-decoration: none;
+    }
+    .bottom-banner a:hover { color: #fff; }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -41,7 +60,6 @@
     <div id="eventsGrid" class="cards-grid" style="margin-top:1rem"></div>
   </main>
 
-  <!-- BANDA NERA FISSA -->
   <div class="bottom-banner">
     <a href="index.html">Home</a>
     <a href="eventi.html">Eventi</a>
@@ -52,12 +70,10 @@
 
   <script src="scripts.js"></script>
   <script>
-    initEventsPage();
+    document.addEventListener('DOMContentLoaded', function() {
+      initEventsPage();
+    });
   </script>
-</body>
-</html>
-
-
 </body>
 </html>
 
