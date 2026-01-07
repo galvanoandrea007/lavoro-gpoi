@@ -1,105 +1,66 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Eventi — Milano Cortina</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="container header-inner">
+<header class="site-header">
+  <div class="container header-inner">
 
-      <div class="brand-wrap">
-        <a class="brand" href="index.html">
-          <img
-            src="https://altimanix.github.io/TPS/logo.png"
-            alt="Milano Cortina Eventi"
-            class="site-logo"
-          >
-          <span class="brand-text">Milano Cortina Eventi</span>
-        </a>
-      </div>
-
-      <button class="nav-toggle" aria-label="Apri menu">
-        <span></span><span></span><span></span>
-      </button>
-
-      <nav class="main-nav" aria-expanded="false">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a class="active" href="eventi.html">Eventi</a></li>
-          <li><a href="vip.html">Ospiti</a></li>
-          <li><a href="#contatti">Contatti</a></li>
-        </ul>
-      </nav>
-
+    <div class="brand-wrap">
+      <a class="brand" href="index.html">
+        <img src="https://altimanix.github.io/TPS/logo.png" class="site-logo" alt="">
+        <span class="brand-text">Milano Cortina Eventi</span>
+      </a>
     </div>
-  </header>
 
-  <!-- MAIN -->
-  <main>
-    <section class="container">
-      <h2>Tutti gli eventi</h2>
+    <button class="nav-toggle" aria-label="Apri menu">
+      <span></span><span></span><span></span>
+    </button>
 
-      <!-- FILTRI -->
-      <div class="filters">
-        <input
-          id="searchInput"
-          type="search"
-          placeholder="Cerca per titolo o luogo..."
-          aria-label="Cerca eventi"
-        >
+    <nav class="main-nav" aria-expanded="false">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a class="active" href="eventi.html">Eventi</a></li>
+        <li><a href="vip.html">Ospiti</a></li>
+      </ul>
+    </nav>
 
-        <select id="categoriaFilter" aria-label="Filtro categoria">
-          <option value="">Tutte le categorie</option>
-        </select>
-
-        <input
-          id="dataFilter"
-          type="date"
-          aria-label="Filtro data"
-        >
-      </div>
-
-      <!-- GRIGLIA EVENTI -->
-      <div
-        id="eventsGrid"
-        class="cards-grid"
-        style="margin-top:1rem"
-      ></div>
-    </section>
-  </main>
-
-  <!-- BOTTOM BANNER -->
-  <div class="bottom-banner">
-    <div class="container">
-      <nav class="bottom-links" aria-label="Link rapidi">
-        <a href="index.html">Home</a>
-        <a href="eventi.html">Eventi</a>
-        <a href="vip.html">Ospiti</a>
-        <a href="prenotazione.html">Prenota</a>
-        <a href="#contatti">Contatti</a>
-        <a href="#">Privacy</a>
-      </nav>
-    </div>
   </div>
+</header>
 
-  <!-- FOOTER -->
-  <footer class="site-footer" id="contatti">
-    <div class="container">
-      <p>&copy; 2025 Milano Cortina Eventi</p>
+<main>
+  <section class="container">
+    <h2>Tutti gli eventi</h2>
+
+    <div class="filters">
+      <input id="searchInput" type="search" placeholder="Cerca evento">
+      <select id="categoriaFilter">
+        <option value="">Tutte le categorie</option>
+      </select>
+      <input id="dataFilter" type="date">
     </div>
-  </footer>
 
-  <!-- SCRIPTS -->
-  <script src="scripts.js"></script>
-  <script>
-    initEventsPage();
-  </script>
+    <div id="eventsGrid" class="cards-grid" style="margin-top:1rem"></div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2025 Milano Cortina Eventi</p>
+  </div>
+</footer>
+
+<script src="scripts.js"></script>
+<script>
+  initEventsPage();
+</script>
 
 </body>
 </html>
+
