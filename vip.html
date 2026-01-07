@@ -1,10 +1,30 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Ospiti Speciali — Milano Cortina</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* BARRA NERA FISSA */
+    .bottom-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #0b1220;
+      color: #fff;
+      padding: 0.65rem 1rem;
+      text-align: center;
+      z-index: 1000;
+    }
+    .bottom-banner a {
+      color: #9fb8ff;
+      margin: 0 0.5rem;
+      text-decoration: none;
+    }
+    .bottom-banner a:hover { color: #fff; }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -15,8 +35,8 @@
           <span class="brand-text">Milano Cortina Eventi</span>
         </a>
       </div>
-      <button id="navToggle5" class="nav-toggle" aria-label="Apri menu"><span></span><span></span><span></span></button>
-      <nav id="mainNav5" class="main-nav" aria-expanded="false">
+      <button class="nav-toggle" aria-label="Apri menu"><span></span><span></span><span></span></button>
+      <nav class="main-nav" aria-expanded="false">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="eventi.html">Eventi</a></li>
@@ -26,22 +46,17 @@
     </div>
   </header>
 
-  <main>
-    <section class="container">
-      <h2>Ospiti Speciali</h2>
-      <div id="vipGrid" class="cards-grid"></div>
-    </section>
+  <main class="container">
+    <h2>Ospiti Speciali</h2>
+    <div id="vipGrid" class="cards-grid" style="margin-top:1rem"></div>
   </main>
 
+  <!-- BARRA NERA FISSA -->
   <div class="bottom-banner">
-    <div class="container">
-      <nav class="bottom-links" aria-label="Link rapidi">
-        <a href="index.html">Home</a>
-        <a href="eventi.html">Eventi</a>
-        <a href="prenotazione.html">Prenota</a>
-        <a href="#contatti">Contatti</a>
-      </nav>
-    </div>
+    <a href="index.html">Home</a>
+    <a href="eventi.html">Eventi</a>
+    <a href="prenotazione.html">Prenota</a>
+    <a href="#contatti">Contatti</a>
   </div>
 
   <footer class="site-footer">
@@ -50,6 +65,11 @@
     </div>
   </footer>
 
-  <script src="scripts.js">document.addEventListener('DOMContentLoaded', window.renderVIPs);</script>
+  <script src="scripts.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      renderVIPs();
+    });
+  </script>
 </body>
 </html>
